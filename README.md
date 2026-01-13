@@ -30,7 +30,7 @@ npm run dev
 **Everything starts with a single command!** Thanks to the **concurrently** package, both the mock API server and Vue development server run simultaneously.
 
 It will automatically open in your browser:
-- **Vue App**: http://localhost:5174
+- **Vue App**: http://localhost:5173
 - **Mock API**: http://localhost:3001
 
 ### Alternative: Running in Separate Terminals
