@@ -1,0 +1,158 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "Rock Concert 2026",
+      "description": "An amazing night of rock music featuring top bands from around the world. Get ready for an unforgettable experience with great music, lights, and atmosphere.",
+      "image_url": "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&h=600&fit=crop",
+      "event_date": "2026-03-15T20:00:00Z",
+      "venue": {
+        "id": 1,
+        "name": "Madison Square Garden",
+        "address": "4 Pennsylvania Plaza, New York, NY 10001"
+      },
+      "event_categories": [
+        {
+          "id": 1,
+          "name": "VIP",
+          "price": 250
+        },
+        {
+          "id": 2,
+          "name": "Premium",
+          "price": 150
+        },
+        {
+          "id": 3,
+          "name": "Standard",
+          "price": 75
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Jazz Festival",
+      "description": "Experience the smooth sounds of jazz at our annual festival. Featuring renowned artists and emerging talents in an intimate setting.",
+      "image_url": "https://images.unsplash.com/photo-1511735111819-9a3f7709049c?w=800&h=600&fit=crop",
+      "event_date": "2026-04-20T19:00:00Z",
+      "venue": {
+        "id": 2,
+        "name": "Blue Note Jazz Club",
+        "address": "131 W 3rd St, New York, NY 10012"
+      },
+      "event_categories": [
+        {
+          "id": 4,
+          "name": "VIP Table",
+          "price": 200
+        },
+        {
+          "id": 5,
+          "name": "General Admission",
+          "price": 85
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Electronic Music Festival",
+      "description": "Dance the night away with the best DJs spinning electronic beats. A multi-stage festival experience you won't forget.",
+      "image_url": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&h=600&fit=crop",
+      "event_date": "2026-05-10T21:00:00Z",
+      "venue": {
+        "id": 3,
+        "name": "Brooklyn Mirage",
+        "address": "140 Stewart Ave, Brooklyn, NY 11237"
+      },
+      "event_categories": [
+        {
+          "id": 6,
+          "name": "Early Bird",
+          "price": 95
+        },
+        {
+          "id": 7,
+          "name": "Regular",
+          "price": 120
+        },
+        {
+          "id": 8,
+          "name": "VIP",
+          "price": 225
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Classical Symphony Night",
+      "description": "Enjoy a magnificent evening of classical music performed by world-class orchestra. An elegant experience for music lovers.",
+      "image_url": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=800&h=600&fit=crop",
+      "event_date": "2026-06-05T19:30:00Z",
+      "venue": {
+        "id": 4,
+        "name": "Carnegie Hall",
+        "address": "881 7th Ave, New York, NY 10019"
+      },
+      "event_categories": [
+        {
+          "id": 9,
+          "name": "Orchestra",
+          "price": 180
+        },
+        {
+          "id": 10,
+          "name": "Balcony",
+          "price": 95
+        },
+        {
+          "id": 11,
+          "name": "Upper Balcony",
+          "price": 55
+        }
+      ]
+    }
+  ],
+  "seat-plans": {
+    "1-1": [
+      {"id": 1, "row": "A", "number": 1, "isBooked": false},
+      {"id": 2, "row": "A", "number": 2, "isBooked": false},
+      {"id": 3, "row": "A", "number": 3, "isBooked": true},
+      {"id": 4, "row": "A", "number": 4, "isBooked": false},
+      {"id": 5, "row": "A", "number": 5, "isBooked": false},
+      {"id": 6, "row": "A", "number": 6, "isBooked": false},
+      {"id": 7, "row": "B", "number": 1, "isBooked": false},
+      {"id": 8, "row": "B", "number": 2, "isBooked": true},
+      {"id": 9, "row": "B", "number": 3, "isBooked": false},
+      {"id": 10, "row": "B", "number": 4, "isBooked": false},
+      {"id": 11, "row": "B", "number": 5, "isBooked": false},
+      {"id": 12, "row": "B", "number": 6, "isBooked": true},
+      {"id": 13, "row": "C", "number": 1, "isBooked": false},
+      {"id": 14, "row": "C", "number": 2, "isBooked": false},
+      {"id": 15, "row": "C", "number": 3, "isBooked": false},
+      {"id": 16, "row": "C", "number": 4, "isBooked": false},
+      {"id": 17, "row": "C", "number": 5, "isBooked": false},
+      {"id": 18, "row": "C", "number": 6, "isBooked": false}
+    ],
+    "1-2": [
+      {"id": 19, "row": "A", "number": 1, "isBooked": true},
+      {"id": 20, "row": "A", "number": 2, "isBooked": false},
+      {"id": 21, "row": "A", "number": 3, "isBooked": false},
+      {"id": 22, "row": "A", "number": 4, "isBooked": false},
+      {"id": 23, "row": "B", "number": 1, "isBooked": false},
+      {"id": 24, "row": "B", "number": 2, "isBooked": false},
+      {"id": 25, "row": "B", "number": 3, "isBooked": false},
+      {"id": 26, "row": "B", "number": 4, "isBooked": true}
+    ],
+    "2-4": [
+      {"id": 27, "row": "A", "number": 1, "isBooked": false},
+      {"id": 28, "row": "A", "number": 2, "isBooked": false},
+      {"id": 29, "row": "A", "number": 3, "isBooked": false},
+      {"id": 30, "row": "A", "number": 4, "isBooked": false},
+      {"id": 31, "row": "B", "number": 1, "isBooked": false},
+      {"id": 32, "row": "B", "number": 2, "isBooked": false},
+      {"id": 33, "row": "B", "number": 3, "isBooked": true},
+      {"id": 34, "row": "B", "number": 4, "isBooked": false}
+    ]
+  }
+}
+
