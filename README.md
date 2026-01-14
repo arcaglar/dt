@@ -23,25 +23,11 @@ Modern ticket selling application - Built with Vue 3, TailwindCSS, Vue Router, a
 # 1. Install dependencies
 npm install
 
-# 2. Start the application (Mock API + Vue App)
+# 2. Start the application
 npm run dev
 ```
 
-**Everything starts with a single command!** Thanks to the **concurrently** package, both the mock API server and Vue development server run simultaneously.
-
-It will automatically open in your browser:
-- **Vue App**: http://localhost:5173
-- **Mock API**: http://localhost:3001
-
-### Alternative: Running in Separate Terminals
-
-```bash
-# Terminal 1: Mock API server
-npm run mock-server
-
-# Terminal 2: Vue app
-npm run dev
-```
+The application will automatically open in your browser at **http://localhost:5173**
 
 ## 📁 Project Structure
 
@@ -55,10 +41,6 @@ src/
 ├── pages/            # Page components
 ├── router/           # Vue Router configuration
 └── store/            # Vuex state management
-
-mock-server/          # Local mock API
-├── db.json           # Mock data
-└── server.js         # JSON Server config
 ```
 
 ## 🔄 Application Flow
@@ -106,7 +88,9 @@ Data Layer (Services → API)
 
 ## 📡 API Endpoints
 
-Mock server provides these endpoints:
+**Base URL:** `https://d706d748-0586-4c2b-9d30-288f5d3b0630.mock.pstmn.io`
+
+Available endpoints:
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -142,8 +126,6 @@ Mock server provides these endpoints:
 | Vuex | ^4.1 | State management |
 | Axios | ^1.6 | HTTP client |
 | TailwindCSS | ^3.4 | Styling |
-| JSON Server | ^0.17 | Mock API |
-| Concurrently | ^9.2 | Multiple scripts |
 
 ## 🔧 Build and Deploy
 
@@ -157,26 +139,16 @@ npm run preview
 
 **Output:** `dist/` folder
 
-## 💡 Concurrently Usage
+## 🔧 Environment Variables
 
-This project uses the **concurrently** package to run both the mock API server and Vue development server with a single command:
+API endpoint is configured via environment variables:
 
-```json
-"dev": "concurrently \"npm:dev:vite\" \"npm:dev:mock\""
-```
-
-**Advantages:**
-- ✅ Single terminal, single command
-- ✅ Both servers start together
-- ✅ Colored logs (easy to distinguish)
-- ✅ Close both servers with a single keystroke (Ctrl+C)
-
-**Alternative Usage:**
-If you prefer to run them in separate terminals:
 ```bash
-npm run mock-server  # Terminal 1
-npm run dev      # Terminal 2
+# .env
+VITE_API_BASE_URL=https://d706d748-0586-4c2b-9d30-288f5d3b0630.mock.pstmn.io
 ```
+
+To use a different API, update the `VITE_API_BASE_URL` in `.env` file and restart the dev server.
 
 ## 🚀 Performance
 

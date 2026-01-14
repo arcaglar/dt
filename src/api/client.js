@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'https://d706d748-0586-4c2b-9d30-288f5d3b0630.mock.pstmn.io',
   headers: {
     'Content-Type': 'application/json',
   },
