@@ -2,6 +2,10 @@
 
 Modern ticket selling application - Built with Vue 3, TailwindCSS, Vue Router, and Vuex.
 
+## 🌐 Live Demo
+
+**[View Live Application →](https://dt-one-mu.vercel.app/)**
+
 ## 🎯 Features
 
 - **Event Discovery** - Browse upcoming events
