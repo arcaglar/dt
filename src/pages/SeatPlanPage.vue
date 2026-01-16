@@ -13,11 +13,11 @@
         <span class="font-medium">Back to Event Details</span>
       </button>
 
-      <div v-if="selectedEvent" class="bg-white rounded-2xl shadow-xl p-6 mb-8">
-        <div class="flex flex-wrap items-center justify-between gap-4">
+      <div v-if="selectedEvent" class="bg-white rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 mb-6 sm:mb-8">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
           <div>
-            <h1 class="text-2xl font-bold text-gray-900 mb-2">{{ selectedEvent.title }}</h1>
-            <div class="flex flex-wrap gap-4 text-sm">
+            <h1 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{{ selectedEvent.title }}</h1>
+            <div class="flex flex-wrap gap-2 sm:gap-4 text-sm">
               <span class="flex items-center text-gray-600">
                 <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -25,7 +25,7 @@
                 </svg>
                 {{ selectedEvent.venue?.name }}
               </span>
-              <span v-if="selectedCategory" class="px-3 py-1 bg-gradient-to-r from-purple-50 to-pink-50 rounded-full text-purple-700 font-semibold">
+              <span v-if="selectedCategory" class="px-3 py-1 bg-gradient-to-r from-purple-50 to-pink-50 rounded-full text-purple-700 font-semibold text-xs sm:text-sm">
                 {{ selectedCategory.name }} - {{ formatPrice(selectedCategory.price) }}
               </span>
             </div>
@@ -42,18 +42,18 @@
         :show-retry="false"
       />
 
-      <div v-else class="bg-white rounded-2xl shadow-xl p-8">
-        <div class="flex items-center justify-between mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 flex items-center">
-            <div class="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center mr-3">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div v-else class="bg-white rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 sm:mb-8">
+          <h2 class="text-xl sm:text-2xl font-bold text-gray-900 flex items-center">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg gradient-primary flex items-center justify-center mr-2 sm:mr-3">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
               </svg>
             </div>
-            Select Your Seats
+            <span class="text-lg sm:text-2xl">Select Your Seats</span>
           </h2>
-          <div v-if="selectedSeats.length > 0" class="px-4 py-2 bg-purple-100 rounded-lg">
-            <span class="text-purple-700 font-semibold">{{ selectedSeats.length }} seat(s) selected</span>
+          <div v-if="selectedSeats.length > 0" class="px-3 sm:px-4 py-2 bg-purple-100 rounded-lg">
+            <span class="text-purple-700 font-semibold text-sm sm:text-base">{{ selectedSeats.length }} seat(s) selected</span>
           </div>
         </div>
         
@@ -63,25 +63,25 @@
           @toggle="toggleSeat"
         />
 
-        <div v-if="selectedSeats.length > 0" class="mt-8 p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border-2 border-purple-100">
-          <div class="flex items-start justify-between mb-4">
-            <div>
-              <p class="text-lg font-semibold text-gray-900 mb-2">
+        <div v-if="selectedSeats.length > 0" class="mt-6 sm:mt-8 p-4 sm:p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border-2 border-purple-100">
+          <div class="flex flex-col-reverse sm:flex-row sm:items-start sm:justify-between gap-4">
+            <div class="flex-1">
+              <p class="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">
                 Selected Seats ({{ selectedSeats.length }})
               </p>
               <div class="flex flex-wrap gap-2">
                 <span
                   v-for="seatId in selectedSeats"
                   :key="seatId"
-                  class="px-3 py-1.5 bg-white text-purple-700 rounded-lg text-sm font-medium shadow-sm border border-purple-200"
+                  class="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-white text-purple-700 rounded-lg text-xs sm:text-sm font-medium shadow-sm border border-purple-200"
                 >
                   {{ getSeatLabel(seatId) }}
                 </span>
               </div>
             </div>
-            <div class="text-right">
+            <div class="text-left sm:text-right border-b sm:border-b-0 pb-4 sm:pb-0 border-purple-200">
               <p class="text-sm text-gray-600 mb-1">Total Amount</p>
-              <p class="text-3xl font-bold text-gradient">
+              <p class="text-2xl sm:text-3xl font-bold text-gradient">
                 {{ formattedTotal }}
               </p>
             </div>
