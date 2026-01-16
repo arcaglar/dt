@@ -8,11 +8,12 @@ Modern ticket selling application - Built with Vue 3, TailwindCSS, Vue Router, a
 
 ## 🎯 Features
 
-- **Event Discovery** - Browse upcoming events
-- **Ticket Selection** - Choose categories and select seats
+- **Event Discovery** - Browse upcoming events with fallback images
+- **Ticket Selection** - Choose categories and select seats (row-based layout, max 10 seats per row)
 - **Secure Payment** - Payment flow with form validation
 - **Smart Routing** - Automatic redirection for invalid states
 - **Responsive Design** - Works perfectly on all devices
+- **Image Fallback** - Graceful handling of missing or broken images
 
 ## 🚀 Installation and Running
 
@@ -89,6 +90,11 @@ Data Layer (Services → API)
 - `formatters.js` - Date, price, seat formatting
 - `validators.js` - Form validation rules
 - `constants.js` - Application constants
+
+**Base Components:**
+- `BaseImage.vue` - Image component with error handling and fallback
+- `BaseButton.vue` - Reusable button component
+- `BaseInput.vue` - Form input with validation support
 
 ## 📡 API Endpoints
 

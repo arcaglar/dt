@@ -3,24 +3,17 @@
     :to="`/events/${event.id}`"
     class="group bg-white rounded-2xl shadow-lg overflow-hidden card-hover"
   >
-    <div class="relative aspect-[16/10] bg-gradient-to-br from-purple-100 to-pink-100 overflow-hidden">
-      <img
-        v-if="event.image_url"
-        :src="event.image_url"
+    <div class="relative aspect-[16/10] overflow-hidden">
+      <BaseImage
+        :src="event.image_url || '/placeholder.jpg'"
         :alt="event.title"
-        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+        image-class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
       />
-      <div v-else class="w-full h-full flex items-center justify-center">
-        <svg class="w-16 h-16 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-      </div>
       
       <div class="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-purple-600">
         Live Event
       </div>
       
-      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
     </div>
     
     <div class="p-6">
@@ -63,6 +56,7 @@
 
 <script setup>
 import { formatDateShort } from '@/utils/formatters'
+import BaseImage from './BaseImage.vue'
 
 defineProps({
   event: {

@@ -11,14 +11,28 @@
       </div>
     </div>
 
-    <div class="flex flex-wrap gap-3 justify-center max-w-3xl mx-auto">
-      <SeatItem
-        v-for="seat in seats"
-        :key="seat.id"
-        :seat="seat"
-        :is-selected="selectedSeats.includes(seat.id)"
-        @toggle="toggleSeat"
-      />
+    <div class="space-y-3 max-w-4xl mx-auto">
+      <div
+        v-for="(row, rowLabel) in groupedSeats"
+        :key="rowLabel"
+        class="flex items-center gap-2 justify-center"
+      >
+        <div class="w-12 flex-shrink-0 text-right">
+          <span class="inline-flex items-center justify-center w-10 h-10 bg-gray-100 rounded-lg text-gray-700 font-bold text-sm border-2 border-gray-200">
+            {{ rowLabel }}
+          </span>
+        </div>
+        
+        <div class="flex gap-2 flex-wrap justify-center">
+          <SeatItem
+            v-for="seat in row"
+            :key="seat.id"
+            :seat="seat"
+            :is-selected="selectedSeats.includes(seat.id)"
+            @toggle="toggleSeat"
+          />
+        </div>
+      </div>
     </div>
 
     <div class="flex justify-center gap-8 pt-6 text-sm">
@@ -39,9 +53,10 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import SeatItem from './SeatItem.vue'
 
-defineProps({
+const props = defineProps({
   seats: {
     type: Array,
     default: () => [],
@@ -53,6 +68,25 @@ defineProps({
 })
 
 const emit = defineEmits(['toggle'])
+
+const groupedSeats = computed(() => {
+  const groups = {}
+  
+  props.seats.forEach(seat => {
+    const rowLabel = seat.row
+    if (!groups[rowLabel]) {
+      groups[rowLabel] = []
+    }
+    groups[rowLabel].push(seat)
+  })
+  
+  Object.keys(groups).forEach(rowLabel => {
+    groups[rowLabel].sort((a, b) => a.number - b.number)
+    groups[rowLabel] = groups[rowLabel].slice(0, 10)
+  })
+  
+  return groups
+})
 
 const toggleSeat = (seatId) => {
   emit('toggle', seatId)

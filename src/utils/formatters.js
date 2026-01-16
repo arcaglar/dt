@@ -75,6 +75,8 @@ export function formatPrice(price, currency = 'USD') {
  */
 export function formatSeatLabel(seat) {
   if (!seat) return ''
-  return `${seat.row}${seat.number}`
+  const row = seat.row || ''
+  const number = seat.number !== undefined && seat.number !== null ? seat.number : ''
+  return `${row}${number}`
 }
 

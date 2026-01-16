@@ -4,9 +4,9 @@
     @click="handleClick"
     :disabled="seat.isBooked"
     :class="seatClasses"
-    class="w-14 h-14 rounded-lg text-sm font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-sm"
+    class="w-12 h-12 rounded-lg text-sm font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-sm"
   >
-    <div class="text-xs">{{ seat.row }}{{ seat.number }}</div>
+    <div class="text-xs">{{ seat.number }}</div>
   </button>
 </template>
 

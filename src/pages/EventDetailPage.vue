@@ -25,18 +25,12 @@
       <div v-else-if="event" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div class="lg:col-span-2 space-y-6">
           <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-            <div class="relative aspect-video bg-gradient-to-br from-purple-100 to-pink-100 overflow-hidden">
-              <img
-                v-if="event.image_url"
-                :src="event.image_url"
+            <div class="relative aspect-video overflow-hidden">
+              <BaseImage
+                :src="event.image_url || '/placeholder.jpg'"
                 :alt="event.title"
-                class="w-full h-full object-cover"
+                image-class="w-full h-full object-cover"
               />
-              <div v-else class="w-full h-full flex items-center justify-center">
-                <svg class="w-24 h-24 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
               <div class="absolute top-6 left-6 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-xl text-sm font-semibold text-purple-600 shadow-lg">
                 Live Event
               </div>
@@ -156,6 +150,7 @@ import { useStore } from 'vuex'
 import { useEventDetail } from '@/composables/useEvents'
 import { formatDate, formatTime, formatPrice } from '@/utils/formatters'
 import { LOADING_MESSAGES, ERROR_MESSAGES } from '@/utils/constants'
+import BaseImage from '@/components/BaseImage.vue'
 import CategorySelect from '@/components/CategorySelect.vue'
 import LoadingSpinner from '@/components/LoadingSpinner.vue'
 import ErrorMessage from '@/components/ErrorMessage.vue'

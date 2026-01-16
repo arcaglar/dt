@@ -42,8 +42,21 @@ export function useSeatPlan() {
   }
 
   const getSeatLabel = (seatId) => {
-    const seat = seats.value.find((s) => s.id === seatId)
-    return seat ? formatSeatLabel(seat) : String(seatId)
+    let seat = seats.value.find((s) => s.id === seatId)
+    
+    if (!seat) {
+      const storedSeatPlan = store.getters.seatPlan
+      if (storedSeatPlan && Array.isArray(storedSeatPlan)) {
+        seat = storedSeatPlan.find((s) => s.id === seatId)
+      }
+    }
+    
+    if (!seat) {
+      return String(seatId)
+    }
+    
+    const label = formatSeatLabel(seat)
+    return label || String(seatId)
   }
 
   const calculateTotal = () => {
